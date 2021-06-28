@@ -17,12 +17,12 @@ body {
     box-shadow: 0 0 1rem #024764;
     overflow: hidden;
     z-index: 1;
-    margin: auto;
+    margin: 150px;
 
 }
 
-.container:before{
-    content:"";
+.container:before {
+    content: "";
     position: absolute;
     background: inherit;
     top: 0;
@@ -36,71 +36,87 @@ body {
     z-index: -1;
 }
 
-/* add reset.css*/
-/* color scheme */
-/*#e1d6da; !*lila*!*/
-/*#024764; !*dark blue*!*/
-/*#226c85; !*turquoise*!*/
-/*#FFFAE0 ;!*yellow beige*!*/
-/*#F5CE42; !*bright yellow*!  */
 
 
 
 /* font*/
 h1 {
     font-family: 'Roboto', sans-serif;
-    color: #e1d6da;
+    color: #024764;
+    font-size: xx-large;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
 }
 
-h2 {
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #024764;
+    padding: 5px;
+}
+
+.center{
+    text-align: center;
+}
+
+
+form {
     font-family: 'Roboto', sans-serif;
     color: #e1d6da;
+    padding: 10px;
+    align-self: center;
 
 }
-
-p{
-    font-family: 'Roboto', sans-serif;
-
-
-}
-/* icons */
-/* button */
-
-/*form{*/
-/*    font-family: 'Roboto', sans-serif;*/
-/*    color: #e1d6da;*/
-/*    padding: 10px;*/
-/*}*/
 
 input[type="text" i] {
     background: inherit;
     border: #024764;
     border-radius: 25px;
-    box-shadow: 0 0 1rem #e1d6da;
+    box-shadow: 0 0 1rem #024764;
     font-family: 'Roboto', sans-serif;
-    color: #e1d6da;
+    color: #024764;
     padding: 10px;
+    text-align: center;
 }
 
 ::placeholder {
-    color: #e1d6da;
+    color: #024764;
     opacity: 1;
 }
 
-
-button {
+/* button */
+.btn {
     background: inherit;
     border: #024764;
     border-radius: 25px;
-    box-shadow: 0 0 1rem #e1d6da;
+    box-shadow: 0 0 1rem #024764;
     font-family: 'Roboto', sans-serif;
-    color: #e1d6da;
+    color: #024764;
     padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px;
+}
 
+.btn:hover:active{
+    transform: scale(1.2);
 
 }
 
-/* add responsiveness*/
+/* icons */
+/*responsiveness*/
+/* add reset.css*/
+
+/* color scheme */
+/*#e1d6da; !*lila*!*/
+/*#024764; !*dark blue*!*/
+/*#226c85; !*turquoise*!*/
+/*#FFFAE0 ;!*yellow beige*!*/
+/*#F5CE42; !*bright yellow*!  */
 
 
 
