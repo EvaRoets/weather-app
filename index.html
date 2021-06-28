@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>How is the weather?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<section class="container">
+<div class="container">
     <h1>Weather forecast</h1>
-    <h2>Get a five day weather forecast for a location of your choice.</h2>
-    <!-- input field for city of choice -->
-    <form id="loc">
-        <label for="location"></label><br>
-        <input type="text" id="location" name="location" placeholder="Find a city" autofocus><br>
-    </form>
-    <!-- submit button-->
-    <button type="submit" form="location" value="Submit">Submit</button>
-    <!-- 5 day display weather-->
-
-</section>
+    <p>Find the weather forecast of the next five days <br/> for your favourite location.</p>
+    <div class="center">
+        <!-- input field for city of choice -->
+        <form id="loc">
+            <label for="location"></label><br>
+            <input type="text" id="location" name="location" placeholder="Select your city" autofocus><br>
+        </form>
+        <!-- submit button-->
+        <button class="btn" type="submit" form="location" value="Submit">Search <i class="fa fa-search"></i></button>
+        <!-- 5 day display weather-->
+    </div>
+</div>
 </body>
 </html>
