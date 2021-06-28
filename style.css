@@ -1,4 +1,106 @@
+/* body */
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background: url("Images/background.jpg") repeat fixed;
+    background-size: cover;
+}
 
+/* container*/
+.container {
+    width: 30rem;
+    height: 20rem;
+    position: relative;
+    background: inherit;
+    border-radius: 25px;
+    box-shadow: 0 0 1rem #024764;
+    overflow: hidden;
+    z-index: 1;
+    margin: auto;
+
+}
+
+.container:before{
+    content:"";
+    position: absolute;
+    background: inherit;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 25px;
+    box-shadow: inset 0 0 2000px #e1d6da;
+    filter: blur(2px);
+    margin: -20px;
+    z-index: -1;
+}
+
+/* add reset.css*/
+/* color scheme */
+/*#e1d6da; !*lila*!*/
+/*#024764; !*dark blue*!*/
+/*#226c85; !*turquoise*!*/
+/*#FFFAE0 ;!*yellow beige*!*/
+/*#F5CE42; !*bright yellow*!  */
+
+
+
+/* font*/
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #e1d6da;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #e1d6da;
+
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+
+
+}
+/* icons */
+/* button */
+
+/*form{*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*    color: #e1d6da;*/
+/*    padding: 10px;*/
+/*}*/
+
+input[type="text" i] {
+    background: inherit;
+    border: #024764;
+    border-radius: 25px;
+    box-shadow: 0 0 1rem #e1d6da;
+    font-family: 'Roboto', sans-serif;
+    color: #e1d6da;
+    padding: 10px;
+}
+
+::placeholder {
+    color: #e1d6da;
+    opacity: 1;
+}
+
+
+button {
+    background: inherit;
+    border: #024764;
+    border-radius: 25px;
+    box-shadow: 0 0 1rem #e1d6da;
+    font-family: 'Roboto', sans-serif;
+    color: #e1d6da;
+    padding: 10px;
+
+
+}
+
+/* add responsiveness*/
 
 
 
