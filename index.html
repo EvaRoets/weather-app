@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <h1>Weather forecast</h1>
-    <h2>Find the weather forecast of the next five days <br/> for your favourite location.</h2>
+    <!--    <h2>Find the weather forecast of the next five days <br/> for your favourite location.</h2>-->
     <!-- input field for city of choice -->
     <form id="loc">
         <label for="location"></label><br>
@@ -20,24 +20,19 @@
     </form>
     <!-- submit button-->
     <button class="btn" type="submit" form="location" value="Submit">Search <i class="fa fa-search"></i></button>
+    <!-- location-->
+    <div class="city"></div>
     <!-- 5 day display weather-->
     <div class="display">
         <div class="card">
-            <div class="city">
-                <p>Ghent</p>
+            <div class="temp"></div>
+            <div class="box">
+                <img src="" alt="" class="icon"><div class="description"></div>
             </div>
-            <div class="temp">25°C</div>
-            <div class="icon">
-                <img src="Images/sunny.png" height="100" width="100" alt="sunny"/>
-            </div>
-            <div class="description">
-                Partly sunny
-            </div>
+            <div class="humidity"></div>
+            <div class="speed"><p></p></div>
         </div>
         <div class="card">
-            <div class="city">
-                <p>Ghent</p>
-            </div>
             <div class="temp">25°C</div>
             <div class="icon">
                 <img src="Images/sunny.png" height="100" width="100" alt="sunny"/>
@@ -45,9 +40,6 @@
             <div class="description">Partly sunny</div>
         </div>
         <div class="card">
-            <div class="city">
-                <p>Ghent</p>
-            </div>
             <div class="temp">25°C</div>
             <div class="icon">
                 <img src="Images/sunny.png" height="100" width="100" alt="sunny"/>
@@ -55,9 +47,6 @@
             <div class="description">Partly sunny</div>
         </div>
         <div class="card">
-            <div class="city">
-                <p>Ghent</p>
-            </div>
             <div class="temp">25°C</div>
             <div class="icon">
                 <img src="Images/sunny.png" height="100" width="100" alt="sunny"/>
@@ -65,9 +54,6 @@
             <div class="description">Partly sunny</div>
         </div>
         <div class="card">
-            <div class="city">
-                <p>Ghent</p>
-            </div>
             <div class="temp">25°C</div>
             <div class="icon">
                 <img src="Images/sunny.png" height="100" width="100" alt="sunny"/>

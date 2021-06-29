@@ -46,7 +46,7 @@ h1 {
     font-weight: 700;
     text-align: center;
     padding: 20px;
-    margin: 20px;
+    margin: 20px 20px 0 20px;
 }
 
 h2 {
@@ -110,6 +110,17 @@ input[type="text" i] {
     transform: scale(1.2);
 }
 
+/*city display*/
+.city {
+    font-family: 'Roboto', sans-serif;
+    color: #024764;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+/*cards*/
 .display {
     display: flex;
     justify-content: center;
@@ -129,11 +140,21 @@ input[type="text" i] {
     margin: 15px;
 }
 
-.city {
-    padding: 5px;
+.temp {
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+    padding-block: inherit;
+
 }
 
-.temp {
+.box{
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    transform: scale(1.2);
 
 }
 
@@ -141,9 +162,19 @@ input[type="text" i] {
 
 }
 
+.humidity{
+    padding-block: inherit;
+}
+
+.speed {
+
+}
+
+
+
+
 
 /*responsiveness*/
-
 /* color scheme */
 /*#e1d6da; !*lila*!*/
 /*#024764; !*dark blue*!*/
