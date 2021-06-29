@@ -142,10 +142,9 @@ input[type="text" i] {
 
 .temp {
     text-align: left;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bold;
     padding-block: inherit;
-
 }
 
 .box{
@@ -163,11 +162,11 @@ input[type="text" i] {
 }
 
 .humidity{
-    padding-block: inherit;
-}
+    text-align: left;
+    padding-bottom: 5px;}
 
 .speed {
-
+    text-align: left;
 }
 
 
