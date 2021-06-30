@@ -1,99 +1,126 @@
 // fetch API weather
+// apiKey: "9c1a9692c7257945806ed5ade3b54eb0"
+// noinspection JSDeprecatedSymbols
+
 let weather = {
     apiKey: "9c1a9692c7257945806ed5ade3b54eb0",
-    fetchWeather: function (city){
-        fetch("https://api.openweathermap.org/data/2.5/forecast?q=" // adjust url
+    fetchWeather: function (city) {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="
             + city
-            + "&cnt=5&units=metric&appid=" //add number of days
+            + "&units=metric&appid="
             + this.apiKey)
-        .then((response) => response.json())
-        .then((data) => this.displayWeather(data))
-        .catch((error) => console.log(error))
+            // fetch("https://api.openweathermap.org/data/2.5/forecast?q=" // adjust url
+            //     + city
+            //     + "&cnt=5&units=metric&appid=" //add number of days
+            //     + this.apiKey)
+            .then((response) => response.json())
+            .then((data) => this.displayWeather(data))
+            .catch((error) => console.log(error))
     },
-    // make 5 day display
-    // https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
-    displayWeather: function(data){
-        const {name} = data.city;
-        const {sunrise, sunset} = data.city;
-
-        function index () {
-            let city = document.querySelector(".city")
-            let sunrise = document.querySelector(".sunrise")
-            let sunset = document.querySelector(".sunset")
-
-            city.innerText = "This week's weather in " + name;
-            sunrise.innerText = sunrise;
-            sunset.innerText = sunset;
-
-
-        // card one
-        const {temp, humidity} = data.list[0].main;
-        const {icon, description1} = data.list[0].weather[0];
-        const {speed1} = data.list[0].wind;
-        document.getElementById("temp1").innerText =  temp.toFixed(1) + "°C";
-        document.getElementById("icon1").src = "http://openweathermap.org/img/wn/" + icon + ".png";
-        document.getElementById("des1").innerText = description[0].toUpperCase() + description1.slice(1);
-        document.getElementById("hum1").innerText = humidity + "% humidity";
-        document.getElementById("speed1").innerText = (speed1*3.6).toFixed(1)  + "km/h wind";
-
-        // card two
-        const {temp, humidity} = data.list[1].main;
-        const {icon, description} = data.list[1].weather[0];
-        const {speed} = data.list[1].wind;
-        console.log(name,description,temp,icon,speed);
-        document.getElementById("temp2").innerText =  temp.toFixed(1) + "°C";
-        document.getElementById("icon2").src = "http://openweathermap.org/img/wn/" + icon + ".png";
-        document.getElementById("des2").innerText = description[0].toUpperCase() + description.slice(1);
-        document.getElementById("hum2").innerText = humidity + "% humidity";
-        document.getElementById("speed2").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
-
-        // card three
-        const {temp, humidity} = data.list[2].main;
-        const {icon, description} = data.list[2].weather[0];
-        const {speed} = data.list[2].wind;
-        console.log(name,description,temp,icon,speed);
-        document.getElementById("temp3").innerText =  temp.toFixed(1) + "°C";
-        document.getElementById("icon3").src = "http://openweathermap.org/img/wn/" + icon + ".png";
-        document.getElementById("des3").innerText = description[0].toUpperCase() + description.slice(1);
-        document.getElementById("hum3").innerText = humidity + "% humidity";
-        document.getElementById("speed3").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
-
-        // card four
-        const {temp, humidity} = data.list[3].main;
-        const {icon, description} = data.list[3].weather[0];
-        const {speed} = data.list[3].wind;
-        console.log(name,description,temp,icon,speed);
-        document.getElementById("temp4").innerText =  temp.toFixed(1) + "°C";
-        document.getElementById("icon4").src = "http://openweathermap.org/img/wn/" + icon + ".png";
-        document.getElementById("des4").innerText = description[0].toUpperCase() + description.slice(1);
-        document.getElementById("hum4").innerText = humidity + "% humidity";
-        document.getElementById("speed4").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
-
-        // card five
-        const {temp, humidity} = data.list[4].main;
-        const {icon, description} = data.list[4].weather[0];
-        const {speed} = data.list[4].wind;
-        console.log(name,description,temp,icon,speed);
-        document.getElementById("temp5").innerText =  temp.toFixed(1) + "°C";
-        document.getElementById("icon5").src = "http://openweathermap.org/img/wn/" + icon + ".png";
-        document.getElementById("des5").innerText = description[0].toUpperCase() + description.slice(1);
-        document.getElementById("hum5").innerText = humidity + "% humidity";
-        document.getElementById("speed5").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
-
-
-        }
-    }
+    displayWeather: function (data) {
+        const {name} = data;
+        const {temp, humidity} = data.main;
+        const {icon, description} = data.weather[0];
+        const {speed} = data.wind;
+        document.querySelector(".city").innerText = "This week's weather in " + name;
+        document.querySelector(".temp").innerText = temp.toFixed(1) + "°C";
+        document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png";
+        document.querySelector(".description").innerText = description[0].toUpperCase() + description.slice(1);
+        document.querySelector(".humidity").innerText = humidity + "% humidity";
+        document.querySelector(".speed").innerText = (speed * 3.6).toFixed(1) + "km/h wind";
+    },
 }
+// make 5 day display
+// https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
+
+// // card one
+// {temp, humidity} = data.list[1].main;
+// {icon, description} = data.list[1].weather[0];
+// {speed} = data.list[1].wind;
+//
+// let temp1 = document.getElementById("temp1")
+// let icon1 = document.getElementById("icon1")
+// let des1 = document.getElementById("des1")
+// let hum1 = document.getElementById("hum1")
+// let speed1 = document.getElementById("speed1")
+//
+// temp1.innerText = temp.toFixed(1) + "°C";
+// icon1.src = "http://openweathermap.org/img/wn/" + icon + ".png";
+// des1.innerText = description[0].toUpperCase() + description.slice(1);
+// hum1.innerText = humidity + "% humidity";
+// speed1.innerText = (speed1*3.6).toFixed(1)  + "km/h wind";
+//
+// // card two
+// {temp, humidity} = data.list[1].main;
+// {icon, description} = data.list[1].weather[0];
+// {speed} = data.list[1].wind;
+// console.log(name,description,temp,icon,speed);
+//
+// let temp2 = document.getElementById("temp2")
+// let icon2 = document.getElementById("icon2")
+// let des2 = document.getElementById("des2")
+// let hum2 = document.getElementById("hum2")
+// let speed2 = document.getElementById("speed2")
+//
+// temp2.innerText =  temp.toFixed(1) + "°C";
+// icon2.src = "http://openweathermap.org/img/wn/" + icon + ".png";
+// des2.innerText = description[0].toUpperCase() + description.slice(1);
+// hum2.innerText = humidity + "% humidity";
+// speed2.innerText = (speed*3.6).toFixed(1)  + "km/h wind";
+//
+// // card three
+// const {temp, humidity} = data.list[2].main;
+// const {icon, description} = data.list[2].weather[0];
+// const {speed} = data.list[2].wind;
+// console.log(name,description,temp,icon,speed);
+// document.getElementById("temp3").innerText =  temp.toFixed(1) + "°C";
+// document.getElementById("icon3").src = "http://openweathermap.org/img/wn/" + icon + ".png";
+// document.getElementById("des3").innerText = description[0].toUpperCase() + description.slice(1);
+// document.getElementById("hum3").innerText = humidity + "% humidity";
+// document.getElementById("speed3").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
+//
+// // card four
+// const {temp, humidity} = data.list[3].main;
+// const {icon, description} = data.list[3].weather[0];
+// const {speed} = data.list[3].wind;
+// console.log(name,description,temp,icon,speed);
+// document.getElementById("temp4").innerText =  temp.toFixed(1) + "°C";
+// document.getElementById("icon4").src = "http://openweathermap.org/img/wn/" + icon + ".png";
+// document.getElementById("des4").innerText = description[0].toUpperCase() + description.slice(1);
+// document.getElementById("hum4").innerText = humidity + "% humidity";
+// document.getElementById("speed4").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
+//
+// // card five
+// const {temp, humidity} = data.list[4].main;
+// const {icon, description} = data.list[4].weather[0];
+// const {speed} = data.list[4].wind;
+// console.log(name,description,temp,icon,speed);
+// document.getElementById("temp5").innerText =  temp.toFixed(1) + "°C";
+// document.getElementById("icon5").src = "http://openweathermap.org/img/wn/" + icon + ".png";
+// document.getElementById("des5").innerText = description[0].toUpperCase() + description.slice(1);
+// document.getElementById("hum5").innerText = humidity + "% humidity";
+// document.getElementById("speed5").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
+
+
+// get form value
+let cityInput = document.getElementById("location")
+
+// link search to button
+document.getElementById("btn").addEventListener("click", function () {
+    alert('Hello World!') // replace by city search
+})
+
+// link search to enter key
+cityInput.addEventListener("keypress", function (event) {
+    if (event.keyCode === 13) {
+        document.getElementById("btn")
+        alert('Hello World!') // replace by city search
+    }
+})
 
 
 
 
-
-
-
-
-// grab form submit (mouse click or enter key)
-// stop form submitting
 
 
 
