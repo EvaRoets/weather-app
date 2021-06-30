@@ -2,53 +2,59 @@ let weather = {
     apiKey: "9c1a9692c7257945806ed5ade3b54eb0",
     //get weather - fetch API
     fetchWeather: function (city) {
-        // 1 day fetch
-        // https://api.openweathermap.org/data/2.5/weather?q=Gent&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
-        fetch("https://api.openweathermap.org/data/2.5/weather?q="
-            + city
-            + "&units=metric&appid="
-            + this.apiKey)
-        .then((response) => response.json())
-        .then((data) => this.displayWeather(data))
-        .catch((error) => console.log(error))
-
-        // // 5 day fetch
-        // // https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
-        // fetch("https://api.openweathermap.org/data/2.5/forecast?q="
+        // // 1 day fetch
+        // // https://api.openweathermap.org/data/2.5/weather?q=Gent&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
+        // fetch("https://api.openweathermap.org/data/2.5/weather?q="
         //     + city
-        //     + "&cnt=5&units=metric&appid="
+        //     + "&units=metric&appid="
         //     + this.apiKey)
         // .then((response) => response.json())
-        // .then((data) => this.displayWeather(data, tempCardID))
+        // .then((data) => this.displayWeather(data))
         // .catch((error) => console.log(error))
+
+        // 5 day fetch
+        // https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
+        fetch("https://api.openweathermap.org/data/2.5/forecast?q="
+            + city
+            + "&cnt=5&units=metric&appid="
+            + this.apiKey)
+        .then((response) => response.json())
+        .then((data) => this.displayWeather(data, tempCardID))
+        .catch((error) => console.log(error))
     },
     //display weather
-    // 1 day display
-    displayWeather: function(data){
-        const {name} = data;
-        const {temp, humidity} = data.main;
-        const {icon, description} = data.weather[0];
-        const {speed} = data.wind;
-        console.log(name,description,temp,icon,speed);
-        document.querySelector(".city").innerText = "This week's weather in " + name;
-        document.querySelector(".temp").innerText =  temp.toFixed(1) + "°C";
-        document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png";
-        document.querySelector(".description").innerText = description[0].toUpperCase() + description.slice(1);
-        document.querySelector(".humidity").innerText = humidity + "% humidity";
-        document.querySelector(".speed").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
+    // // 1 day display
+    // displayWeather: function(data){
+    //     const {name} = data;
+    //     const {temp, humidity} = data.main;
+    //     const {icon, description} = data.weather[0];
+    //     const {speed} = data.wind;
+    //     console.log(name,description,temp,icon,speed);
+    //     document.querySelector(".city").innerText = "This week's weather in " + name;
+    //     document.querySelector(".temp").innerText =  temp.toFixed(1) + "°C";
+    //     document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png";
+    //     document.querySelector(".description").innerText = description[0].toUpperCase() + description.slice(1);
+    //     document.querySelector(".humidity").innerText = humidity + "% humidity";
+    //     document.querySelector(".speed").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
 
     // 5 day display
-    // displayWeather: function (data, tempCardID) {
-        // const {name} = data;
-        //const {temp, humidity} = data.main;
-        //const {icon, description} = data.weather[0];
-        //const {speed} = data.wind;
-        // document.querySelector(".city").innerText = "This week's weather in " + name;
-        // document.getElementById(tempCardID).querySelector(".temp").innerText = temp.toFixed(1) + "°C";
+    displayWeather: function (data, tempCardID) {
+        // day one
+        let {name} = data;
+        let {temp, humidity} = data.list[0].main;
+        // let tempCardID =
+        document.querySelector(".city").innerText = "This week's weather in " + name;
+        document.getElementById(tempCardID).querySelector(".temp").innerText = temp.toFixed(1) + "°C";
+
+        // let {icon, description} = data.list[0].weather[0];
+        // let {speed} = data.list[0].wind;
         // document.getElementById(tempCardID).querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
         // document.getElementById(tempCardID).querySelector(".description").innerText = description[0].toUpperCase() + description.slice(1);
         // document.getElementById(tempCardID).querySelector(".humidity").innerText = humidity + "% humidity";
         // document.getElementById(tempCardID).querySelector(".speed").innerText = (speed * 3.6).toFixed(1) + "km/h wind";
+
+        // day two
+
 
         },
     searchCity: function () {
@@ -75,23 +81,6 @@ document.getElementById("location").addEventListener("keypress", function (event
 });
 
 
-// // day one
-// {temp, humidity} = data.list[1].main;
-// {icon, description} = data.list[1].weather[0];
-// {speed} = data.list[1].wind;
-//
-// let temp1 = document.getElementById("temp1")
-// let icon1 = document.getElementById("icon1")
-// let des1 = document.getElementById("des1")
-// let hum1 = document.getElementById("hum1")
-// let speed1 = document.getElementById("speed1")
-//
-// temp1.innerText = temp.toFixed(1) + "°C";
-// icon1.src = "http://openweathermap.org/img/wn/" + icon + ".png";
-// des1.innerText = description[0].toUpperCase() + description.slice(1);
-// hum1.innerText = humidity + "% humidity";
-// speed1.innerText = (speed1*3.6).toFixed(1)  + "km/h wind";
-//
 // // day two
 // {temp, humidity} = data.list[1].main;
 // {icon, description} = data.list[1].weather[0];
