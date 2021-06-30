@@ -1,9 +1,8 @@
 // fetch API weather
-// apiKey: "9c1a9692c7257945806ed5ade3b54eb0"
-// noinspection JSDeprecatedSymbols
-
-let weather = {
+    // apiKey: "9c1a9692c7257945806ed5ade3b54eb0"
+let weatherApp = {
     apiKey: "9c1a9692c7257945806ed5ade3b54eb0",
+    //get weather
     fetchWeather: function (city) {
         fetch("https://api.openweathermap.org/data/2.5/weather?q="
             + city
@@ -17,6 +16,7 @@ let weather = {
             .then((data) => this.displayWeather(data))
             .catch((error) => console.log(error))
     },
+    //display weather
     displayWeather: function (data) {
         const {name} = data;
         const {temp, humidity} = data.main;
@@ -29,11 +29,17 @@ let weather = {
         document.querySelector(".humidity").innerText = humidity + "% humidity";
         document.querySelector(".speed").innerText = (speed * 3.6).toFixed(1) + "km/h wind";
     },
-}
+    searchCity: function () {
+        // get form value
+        let cityInput = document.getElementById("location").value
+        //get weather for form value
+        this.fetchWeather(cityInput);
+    }
+};
 // make 5 day display
-// https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
+    // https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
 
-// // card one
+// // day one
 // {temp, humidity} = data.list[1].main;
 // {icon, description} = data.list[1].weather[0];
 // {speed} = data.list[1].wind;
@@ -50,7 +56,7 @@ let weather = {
 // hum1.innerText = humidity + "% humidity";
 // speed1.innerText = (speed1*3.6).toFixed(1)  + "km/h wind";
 //
-// // card two
+// // day two
 // {temp, humidity} = data.list[1].main;
 // {icon, description} = data.list[1].weather[0];
 // {speed} = data.list[1].wind;
@@ -68,7 +74,7 @@ let weather = {
 // hum2.innerText = humidity + "% humidity";
 // speed2.innerText = (speed*3.6).toFixed(1)  + "km/h wind";
 //
-// // card three
+// // day three
 // const {temp, humidity} = data.list[2].main;
 // const {icon, description} = data.list[2].weather[0];
 // const {speed} = data.list[2].wind;
@@ -79,7 +85,7 @@ let weather = {
 // document.getElementById("hum3").innerText = humidity + "% humidity";
 // document.getElementById("speed3").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
 //
-// // card four
+// // day four
 // const {temp, humidity} = data.list[3].main;
 // const {icon, description} = data.list[3].weather[0];
 // const {speed} = data.list[3].wind;
@@ -90,7 +96,7 @@ let weather = {
 // document.getElementById("hum4").innerText = humidity + "% humidity";
 // document.getElementById("speed4").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
 //
-// // card five
+// // day five
 // const {temp, humidity} = data.list[4].main;
 // const {icon, description} = data.list[4].weather[0];
 // const {speed} = data.list[4].wind;
@@ -101,24 +107,25 @@ let weather = {
 // document.getElementById("hum5").innerText = humidity + "% humidity";
 // document.getElementById("speed5").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
 
-
-// get form value
-let cityInput = document.getElementById("location")
-
 // link search to button
 document.getElementById("btn").addEventListener("click", function () {
-    alert('Hello World!') // replace by city search
-})
+    //weather.fetchWeather("cityInput")
+    weather.searchCity();
+});
 
 // link search to enter key
-cityInput.addEventListener("keypress", function (event) {
+document.getElementById("location").addEventListener("keypress", function (event) {
     if (event.keyCode === 13) {
-        document.getElementById("btn")
-        alert('Hello World!') // replace by city search
+        weather.searchCity();
+
     }
-})
+});
 
 
+// when search bar empty = no cards/displayed days
+// make all functions arrow functions
+// add responsiveness
+// check requirements
 
 
 
