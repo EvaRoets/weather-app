@@ -88,12 +88,12 @@ let weather = {
 };
 
 // link search to button
-document.getElementById("btn").addEventListener("click",  () => {
+document.getElementById("btn").addEventListener("click", () => {
     weather.searchCity();
 });
 
 // link search to enter key
-document.getElementById("location").addEventListener("keypress",  (event) => {
+document.getElementById("location").addEventListener("keypress", (event) => {
     if (event.key === 'Enter') {
         weather.searchCity(); // TODO: fix this
     }
