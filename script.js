@@ -13,7 +13,7 @@ let weather = {
             .catch((error) => console.log(error))
     },
     // 5 day display
-    displayWeather: function (data) {
+    displayWeather: (data) => {
         let cityName = data.city.name
         document.querySelector(".city").innerText = "This week's weather in " + cityName;
         // day one
@@ -87,24 +87,19 @@ let weather = {
     },
 };
 
-
 // link search to button
-document.getElementById("btn").addEventListener("click", function () {
+document.getElementById("btn").addEventListener("click",  () => {
     weather.searchCity();
 });
 
 // link search to enter key
-document.getElementById("location").addEventListener("keypress", function (event) {
+document.getElementById("location").addEventListener("keypress",  (event) => {
     if (event.key === 'Enter') {
         weather.searchCity(); // TODO: fix this
-
     }
 });
 
-
 // TODO: when search bar empty = no cards/displayed days
-// TODO: make all functions arrow functions
-// TODO: add responsiveness
 
 
 
