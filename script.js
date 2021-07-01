@@ -2,41 +2,16 @@ let weather = {
     apiKey: "9c1a9692c7257945806ed5ade3b54eb0",
     //get weather - fetch API
     fetchWeather: function (city) {
-        // // 1 day fetch
-        // // https://api.openweathermap.org/data/2.5/weather?q=Gent&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
-        // fetch("https://api.openweathermap.org/data/2.5/weather?q="
-        //     + city
-        //     + "&units=metric&appid="
-        //     + this.apiKey)
-        // .then((response) => response.json())
-        // .then((data) => this.displayWeather(data))
-        // .catch((error) => console.log(error))
-
         // 5 day fetch
         // https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
         fetch("https://api.openweathermap.org/data/2.5/forecast?q="
             + city
             + "&cnt=5&units=metric&appid="
             + this.apiKey)
-        .then((response) => response.json())
-        .then((data) => this.displayWeather(data))
-        .catch((error) => console.log(error))
+            .then((response) => response.json())
+            .then((data) => this.displayWeather(data))
+            .catch((error) => console.log(error))
     },
-    //display weather
-    // // 1 day display
-    // displayWeather: function(data){
-    //     const {name} = data;
-    //     const {temp, humidity} = data.main;
-    //     const {icon, description} = data.weather[0];
-    //     const {speed} = data.wind;
-    //     console.log(name,description,temp,icon,speed);
-    //     document.querySelector(".city").innerText = "This week's weather in " + name;
-    //     document.querySelector(".temp").innerText =  temp.toFixed(1) + "°C";
-    //     document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png";
-    //     document.querySelector(".description").innerText = description[0].toUpperCase() + description.slice(1);
-    //     document.querySelector(".humidity").innerText = humidity + "% humidity";
-    //     document.querySelector(".speed").innerText = (speed*3.6).toFixed(1)  + "km/h wind";
-
     // 5 day display
     displayWeather: function (data) {
         let cityName = data.city.name
@@ -105,36 +80,32 @@ let weather = {
         document.getElementById("card5").querySelector(".temp").innerText = temp5.toFixed(1) + "°C";
         document.getElementById("card5").querySelector(".humidity").innerText = hum5 + "% humidity";
         document.getElementById("card5").querySelector(".speed").innerText = (speed5 * 3.6).toFixed(1) + "km/h wind";
-        },
+    },
     searchCity: function () {
-        // get form value
         let cityInput = document.getElementById("location").value
-        //get weather for form value
         this.fetchWeather(cityInput);
     },
 };
 
+
 // link search to button
 document.getElementById("btn").addEventListener("click", function () {
-    //weather.fetchWeather("cityInput")
     weather.searchCity();
 });
 
 // link search to enter key
 document.getElementById("location").addEventListener("keypress", function (event) {
-    if (event.keyCode === 13) {
-        alert ("This is working!"); // works
-        // weather.searchCity(); // TODO: fix this
+    if (event.key === 'Enter') {
+        weather.searchCity(); // TODO: fix this
 
     }
 });
 
 
-
 // TODO: when search bar empty = no cards/displayed days
 // TODO: make all functions arrow functions
 // TODO: add responsiveness
-// TODO: check requirements
+
 
 
 
