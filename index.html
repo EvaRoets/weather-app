@@ -12,17 +12,17 @@
 <body>
 <div class="container">
     <h1>Weather forecast</h1>
-    <!--    <h2>Find the weather forecast of the next five days <br/> for your favourite location.</h2>-->
     <!-- input field for city of choice -->
     <form id="loc">
         <label for="location"></label><br>
-        <input type="text" id="location" name="location" placeholder="Select your city" autofocus><br>
+        <input type="text" id="location" name="location" placeholder="Enter your city" autofocus>
+        <!-- submit button-->
+        <button class="btn" type="submit" form="location" value="Submit" id="btn"><i class="fa fa-search"></i></button>
+        <br>
     </form>
-    <!-- submit button-->
-    <button class="btn" type="submit" form="location" value="Submit" id="btn">Search <i class="fa fa-search"></i></button>
+
     <!-- location-->
     <div class="city"></div>
-
     <!-- 5 day display weather-->
     <div class="display">
         <div class="card" id="card1">
