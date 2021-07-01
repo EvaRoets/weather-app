@@ -16,6 +16,10 @@ let weather = {
     displayWeather: (data) => {
         let cityName = data.city.name
         document.querySelector(".city").innerText = "This week's weather in " + cityName;
+        document.querySelectorAll(".card").forEach( (card) => {
+            card.classList.remove("loading");
+        })
+
         // day one
         let icon1 = data.list[0].weather[0].icon
         let des1 = data.list[0].weather[0].description
@@ -84,6 +88,7 @@ let weather = {
     searchCity: function () {
         let cityInput = document.getElementById("location").value
         this.fetchWeather(cityInput);
+
     },
 };
 
@@ -98,8 +103,6 @@ document.getElementById("location").addEventListener("keypress", (event) => {
         weather.searchCity(); // TODO: fix this
     }
 });
-
-// TODO: when search bar empty = no cards/displayed days
 
 
 

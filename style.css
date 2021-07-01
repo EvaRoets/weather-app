@@ -1,9 +1,9 @@
 /* color scheme */
-/*#e1d6da; !*lila*!*/
-/*#024764; !*dark blue*!*/
-/*#226c85; !*turquoise*!*/
-/*#FFFAE0 ;!*yellow beige*!*/
-/*#F5CE42; !*bright yellow*!  */
+h2{color: #e1d6da;}
+h3{color:#024764;}
+h4 {color:#226c85;}
+h5 {color: #FFFAE0;}
+h6 {color:#F5CE42;}
 
 /*responsiveness*/
 @media only screen and (max-width: 479px) {
@@ -22,7 +22,7 @@
         position: relative;
         background: inherit;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         overflow: hidden;
         z-index: 1;
         margin: 25px;
@@ -62,7 +62,7 @@
         background: inherit;
         border: #024764;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         color: #024764;
@@ -114,7 +114,7 @@
     .card {
         border: #024764;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         font-family: 'Roboto', sans-serif;
         color: #024764;
         padding: 10px;
@@ -151,7 +151,6 @@
         padding: 5px;
     }
 }
-
 @media only screen and (min-width: 480px) and (max-width: 1023px) {
     /* body */
     body {
@@ -169,7 +168,7 @@
         position: relative;
         background: inherit;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         overflow: hidden;
         z-index: 1;
         margin: 50px;
@@ -204,6 +203,20 @@
         display: flex;
     }
 
+    input[type="text" i] {
+        width: 10rem;
+        background: inherit;
+        border: #024764;
+        border-radius: 25px;
+        box-shadow: 0 0 1rem #226c85;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        color: #024764;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+    }
+
     ::placeholder {
         color: #024764;
         opacity: 1;
@@ -214,8 +227,6 @@
         width: 2.5rem;
         background: inherit;
         border: #024764;
-        /* border-radius: 25px; */
-        /* box-shadow: 0 0 1rem #024764; */
         font-family: 'Roboto', sans-serif;
         color: #024764;
         padding: 8px;
@@ -250,7 +261,7 @@
     .card {
         border: #024764;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         font-family: 'Roboto', sans-serif;
         color: #024764;
         padding: 10px;
@@ -304,26 +315,10 @@
         position: relative;
         background: inherit;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         overflow: hidden;
         z-index: 1;
         margin: 150px;
-        text-align: center;
-    }
-
-    .container:before {
-        content: "";
-        position: absolute;
-        background: inherit;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: 25px;
-        box-shadow: inset 0 0 2000px #e1d6da;
-        filter: blur(2px);
-        margin: -20px;
-        z-index: -1;
         text-align: center;
     }
 
@@ -360,7 +355,7 @@
         background: inherit;
         border: #024764;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         color: #024764;
@@ -378,8 +373,6 @@
         width: 2.5rem;
         background: inherit;
         border: #024764;
-        /* border-radius: 25px; */
-        /* box-shadow: 0 0 1rem #024764; */
         font-family: 'Roboto', sans-serif;
         color: #024764;
         padding: 8px;
@@ -413,7 +406,7 @@
     .card {
         border: #024764;
         border-radius: 25px;
-        box-shadow: 0 0 1rem #024764;
+        box-shadow: 0 0 1rem #226c85;
         font-family: 'Roboto', sans-serif;
         color: #024764;
         padding: 20px;
@@ -449,5 +442,22 @@
     }
 }
 
+.container:before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 25px;
+    box-shadow: inset 0 0 2000px #e1d6da;
+    filter: blur(5px);
+    margin: -20px;
+    z-index: -1;
+    text-align: center;
+}
 
-
+.card.loading{
+    visibility: hidden;
+}
