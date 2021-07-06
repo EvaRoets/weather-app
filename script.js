@@ -15,23 +15,25 @@ let weather = {
     // 5 day display
     displayWeather: (data) => {
         let cityName = data.city.name
-        document.querySelector(".city").innerText = "This week's weather in " + cityName;
-        document.querySelectorAll(".card").forEach( (card) => {
+        let cityOutput = document.querySelector(".city")
+        cityOutput.innerText = "This week's weather in " + cityName;
+        document.querySelectorAll(".card").forEach((card) => {
             card.classList.remove("loading");
         })
 
         // day one
-        let icon1 = data.list[0].weather[0].icon
+        const icon1 = data.list[0].weather[0].icon
         let des1 = data.list[0].weather[0].description
         let temp1 = data.list[0].main.temp
         let hum1 = data.list[0].main.humidity
         let speed1 = data.list[0].wind.speed
+        const card1 = document.getElementById("card1")
 
-        document.getElementById("card1").querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon1 + ".png";
-        document.getElementById("card1").querySelector(".description").innerText = des1[0].toUpperCase() + des1.slice(1);
-        document.getElementById("card1").querySelector(".temp").innerText = temp1.toFixed(1) + "°C";
-        document.getElementById("card1").querySelector(".humidity").innerText = hum1 + "% humidity";
-        document.getElementById("card1").querySelector(".speed").innerText = (speed1 * 3.6).toFixed(1) + "km/h wind";
+        card1.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon1 + ".png";
+        card1.querySelector(".description").innerText = des1[0].toUpperCase() + des1.slice(1);
+        card1.querySelector(".temp").innerText = temp1.toFixed(1) + "°C";
+        card1.querySelector(".humidity").innerText = hum1 + "% humidity";
+        card1.querySelector(".speed").innerText = (speed1 * 3.6).toFixed(1) + "km/h wind";
 
         // day two
         let icon2 = data.list[1].weather[0].icon
@@ -100,12 +102,9 @@ document.getElementById("btn").addEventListener("click", () => {
 // link search to enter key
 document.getElementById("location").addEventListener("keypress", (event) => {
     if (event.key === 'Enter') {
-        weather.searchCity(); // TODO: fix this
+        weather.searchCity();
     }
 });
-
-
-
 
 
 
