@@ -1,5 +1,7 @@
 # The Weather Application ⛅
 
+![Weather forecast](https://user-images.githubusercontent.com/84382812/135869233-95dc0634-93d6-4079-8a1d-644ef0f62d02.PNG)
+
 ## Objective
 Consolidate knowledge on:
 - A typical AJAX flow: send asynchronous requests to a remote server and process the results
