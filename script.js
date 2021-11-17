@@ -1,8 +1,7 @@
 let weather = {
     apiKey: "9c1a9692c7257945806ed5ade3b54eb0",
-    //get weather - fetch API
+    //fetch API
     fetchWeather: function (city) {
-        // 5 day fetch
         // https://api.openweathermap.org/data/2.5/forecast?q=Gent&cnt=5&units=metric&appid=9c1a9692c7257945806ed5ade3b54eb0
         fetch("https://api.openweathermap.org/data/2.5/forecast?q="
             + city
@@ -16,8 +15,10 @@ let weather = {
     displayWeather: (data) => {
         let cityName = data.city.name
         let cityOutput = document.querySelector(".city")
+        const card = document.querySelectorAll(".card")
+
         cityOutput.innerText = "This week's weather in " + cityName;
-        document.querySelectorAll(".card").forEach((card) => {
+        card.forEach((card) => {
             card.classList.remove("loading");
         })
 
@@ -41,12 +42,14 @@ let weather = {
         let temp2 = data.list[1].main.temp
         let hum2 = data.list[1].main.humidity
         let speed2 = data.list[1].wind.speed
+        const card2 = document.getElementById("card2")
 
-        document.getElementById("card2").querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon2 + ".png";
-        document.getElementById("card2").querySelector(".description").innerText = des2[0].toUpperCase() + des1.slice(1);
-        document.getElementById("card2").querySelector(".temp").innerText = temp2.toFixed(1) + "°C";
-        document.getElementById("card2").querySelector(".humidity").innerText = hum2 + "% humidity";
-        document.getElementById("card2").querySelector(".speed").innerText = (speed2 * 3.6).toFixed(1) + "km/h wind";
+
+        card2.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon2 + ".png";
+        card2.querySelector(".description").innerText = des2[0].toUpperCase() + des2.slice(1);
+        card2.querySelector(".temp").innerText = temp2.toFixed(1) + "°C";
+        card2.querySelector(".humidity").innerText = hum2 + "% humidity";
+        card2.querySelector(".speed").innerText = (speed2 * 3.6).toFixed(1) + "km/h wind";
 
         // day three
         let icon3 = data.list[2].weather[0].icon
@@ -54,12 +57,13 @@ let weather = {
         let temp3 = data.list[2].main.temp
         let hum3 = data.list[2].main.humidity
         let speed3 = data.list[2].wind.speed
+        const card3 = document.getElementById("card3")
 
-        document.getElementById("card3").querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon3 + ".png";
-        document.getElementById("card3").querySelector(".description").innerText = des3[0].toUpperCase() + des3.slice(1);
-        document.getElementById("card3").querySelector(".temp").innerText = temp3.toFixed(1) + "°C";
-        document.getElementById("card3").querySelector(".humidity").innerText = hum3 + "% humidity";
-        document.getElementById("card3").querySelector(".speed").innerText = (speed3 * 3.6).toFixed(1) + "km/h wind";
+        card3.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon3 + ".png";
+        card3.querySelector(".description").innerText = des3[0].toUpperCase() + des3.slice(1);
+        card3.querySelector(".temp").innerText = temp3.toFixed(1) + "°C";
+        card3.querySelector(".humidity").innerText = hum3 + "% humidity";
+        card3.querySelector(".speed").innerText = (speed3 * 3.6).toFixed(1) + "km/h wind";
 
         // day four
         let icon4 = data.list[3].weather[0].icon
@@ -67,12 +71,13 @@ let weather = {
         let temp4 = data.list[3].main.temp
         let hum4 = data.list[3].main.humidity
         let speed4 = data.list[3].wind.speed
+        const card4 = document.getElementById("card4")
 
-        document.getElementById("card4").querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon4 + ".png";
-        document.getElementById("card4").querySelector(".description").innerText = des4[0].toUpperCase() + des4.slice(1);
-        document.getElementById("card4").querySelector(".temp").innerText = temp4.toFixed(1) + "°C";
-        document.getElementById("card4").querySelector(".humidity").innerText = hum4 + "% humidity";
-        document.getElementById("card4").querySelector(".speed").innerText = (speed4 * 3.6).toFixed(1) + "km/h wind";
+        card4.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon4 + ".png";
+        card4.querySelector(".description").innerText = des4[0].toUpperCase() + des4.slice(1);
+        card4.querySelector(".temp").innerText = temp4.toFixed(1) + "°C";
+        card4.querySelector(".humidity").innerText = hum4 + "% humidity";
+        card4.querySelector(".speed").innerText = (speed4 * 3.6).toFixed(1) + "km/h wind";
 
         // day five
         let icon5 = data.list[4].weather[0].icon
@@ -80,17 +85,17 @@ let weather = {
         let temp5 = data.list[4].main.temp
         let hum5 = data.list[4].main.humidity
         let speed5 = data.list[4].wind.speed
+        const card5 = document.getElementById("card5")
 
-        document.getElementById("card5").querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon5 + ".png";
-        document.getElementById("card5").querySelector(".description").innerText = des5[0].toUpperCase() + des5.slice(1);
-        document.getElementById("card5").querySelector(".temp").innerText = temp5.toFixed(1) + "°C";
-        document.getElementById("card5").querySelector(".humidity").innerText = hum5 + "% humidity";
-        document.getElementById("card5").querySelector(".speed").innerText = (speed5 * 3.6).toFixed(1) + "km/h wind";
+        card5.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon5 + ".png";
+        card5.querySelector(".description").innerText = des5[0].toUpperCase() + des5.slice(1);
+        card5.querySelector(".temp").innerText = temp5.toFixed(1) + "°C";
+        card5.querySelector(".humidity").innerText = hum5 + "% humidity";
+        card5.querySelector(".speed").innerText = (speed5 * 3.6).toFixed(1) + "km/h wind";
     },
     searchCity: function () {
         let cityInput = document.getElementById("location").value
         this.fetchWeather(cityInput);
-
     },
 };
 
